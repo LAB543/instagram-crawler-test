@@ -4,9 +4,15 @@ const args = process.argv;
 
 let scrape = async () => {
   const browser = await puppeteer.launch({
-    headless: false,
-    slowMo: 250, // slow down by 250ms
-    devtools: true
+/*    executablePath: __dirname + "/headless_shell", */
+    executablePath: "/usr/bin/google-chrome-stable",
+    dumpio: false,
+    devtools: false,
+    args: [
+      '--no-sandbox',
+      '--vmodule',
+      '--single-process'
+    ]
   });
 
   const page = await browser.newPage();
