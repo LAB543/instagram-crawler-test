@@ -99,5 +99,5 @@ let scrape = async () => {
 
 
 scrape().then((browser) => {
-  //browser.close();
+  browser.close();
 });
